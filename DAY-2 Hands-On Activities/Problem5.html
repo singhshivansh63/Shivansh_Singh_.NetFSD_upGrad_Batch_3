@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Enrollment Form</title>
+</head>
+
+<body>
+
+<header>
+    <h1>Course Enrollment Form</h1>
+</header>
+
+<section>
+
+    <form title="Enrollment Form">
+
+         
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        
+        <label for="course">Select Course:</label><br>
+        <input list="courses" id="course" name="course" required>
+
+        <datalist id="courses">
+            <option value="HTML">
+            <option value="CSS">
+            <option value="JavaScript">
+            <option value="Python">
+            <option value="Java">
+        </datalist>
+        <br><br>
+
+        
+        <label>Experience Level:</label><br>
+
+        <input type="radio" name="experience" value="Beginner" required> Beginner<br>
+        <input type="radio" name="experience" value="Intermediate"> Intermediate<br>
+        <input type="radio" name="experience" value="Advanced"> Advanced<br>
+        <br>
+
+   
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="16" max="60" required>
+        <br><br>
+
+    
+        <label>Form Completion:</label><br>
+
+        <input type="checkbox" id="completed" name="completed">
+        <label for="completed">Completed</label>
+        <br><br>
+
+        
+        <input type="submit" value="Enroll">
+
+    </form>
+
+</section>
+
+<footer>
+    <p>© 2026 Learning Portal</p>
+</footer>
+
+</body>
+</html>
+
+
