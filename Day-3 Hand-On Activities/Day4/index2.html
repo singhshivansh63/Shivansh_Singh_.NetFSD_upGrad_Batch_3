@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, select, button {
+      padding: 8px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Simple Calculator</h2>
+
+  <input type="number" id="num1" placeholder="Enter first number">
+  
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+
+  <input type="number" id="num2" placeholder="Enter second number">
+
+  <br>
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div id="result">Result: </div>
+
+  <script>
+    function calculate() {
+
+      // Read values from DOM
+      let x = Number(document.getElementById("num1").value);
+      let y = Number(document.getElementById("num2").value);
+      let operator = document.getElementById("operator").value;
+
+      let result;
+
+      // Switch Case
+      switch (operator) {
+        case "+":
+          result = x + y;
+          break;
+
+        case "-":
+          result = x - y;
+          break;
+
+        case "*":
+          result = x * y;
+          break;
+
+        case "/":
+          result = x / y;
+          break;
+
+        default:
+          result = "Invalid Operation";
+      }
+
+      // Display result
+      document.getElementById("result").innerText =
+        "Result: " + result;
+    }
+  </script>
+
+</body>
+</html>
+
