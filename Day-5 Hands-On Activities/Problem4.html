@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .profile-card {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            background-color: #f4f4f4;
+        }
+
+        .profile-card p {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Profile Manager</h1>
+
+    <div id="profileContainer"></div>
+
+    <button id="updateMarksBtn">Update Marks</button>
+
+    <script>
+ 
+        const student = {
+            name: "Shivansh",
+            rollNo: 101,
+            marks: 75
+        };
+
+        
+        function updateStudentProfile(studentObj) {
+
+            const container = document.getElementById("profileContainer");
+
+            container.innerHTML = `
+                <div class="profile-card">
+                    <p><strong>Name:</strong> ${studentObj.name}</p>
+                    <p><strong>Roll No:</strong> ${studentObj.rollNo}</p>
+                    <p><strong>Marks:</strong> ${studentObj.marks}</p>
+                </div>
+            `;
+        }
+
+        
+        function updateMarks(newMarks) {
+            student.marks = newMarks;    
+            updateStudentProfile(student);   
+        }
+
+        
+        updateStudentProfile(student);
+
+        
+        document.getElementById("updateMarksBtn")
+            .addEventListener("click", function() {
+
+                const newMarks = prompt("Enter new marks:");
+                if (newMarks !== null && newMarks !== "") {
+                    updateMarks(Number(newMarks));
+                }
+
+            });
+
+    </script>
+
+</body>
+</html>
+
