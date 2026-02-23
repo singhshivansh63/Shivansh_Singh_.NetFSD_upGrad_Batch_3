@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Design Demo</title>
+
+  <style>
+     
+    body{
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: lightblue;
+      font-size: 18px;
+     }
+
+    header {
+      background-color: navy;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    
+    nav{
+      display: flex;
+      justify-content: center;
+      background-color: darkblue;
+     }
+
+    nav a{
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: block;
+     }
+
+    nav a:hover {
+      background-color: royalblue;
+     }
+
+    main {
+      padding: 20px;
+      text-align: center;
+     }
+
+   
+    @media (max-width: 768px) {
+
+       
+      body {
+        background-color: lightcoral;
+      }
+
+       
+      body {
+        font-size: 14px;
+      }
+
+     
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid white;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <header>
+    <h1>Responsive Webpage</h1>
+  </header>
+
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+
+
+  <main>
+    <h2>Welcome!</h2>
+
+    <p>
+      Resize the browser window or use developer tools responsive mode
+      to see layout changes between desktop and mobile view.
+    </p>
+
+  </main>
+
+
+</body>
+</html>

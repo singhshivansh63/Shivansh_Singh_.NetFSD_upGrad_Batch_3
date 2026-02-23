@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Enrollment Form</title>
+</head>
+
+<body>
+
+<header>
+      
+    <h1>Online Course Enrollment</h1>
+    <p title="Fill the form to enroll in a course">Please complete the form below</p>
+    
+</header>
+
+<section>
+
+    <form title="Enrollment Form">
+
+        
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+      
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+       
+        <label for="course">Choose Course:</label><br>
+        <input list="courses" id="course" name="course" required>
+
+        <datalist id="courses">
+            <option value="HTML Basics">
+            <option value="CSS Fundamentals">
+            <option value="JavaScript Programming">
+            <option value="React Development">
+            <option value="Python for Beginners">
+        </datalist>
+        <br><br>
+
+        
+        <label for="skill">Skill Level:</label><br>
+        <meter id="skill" min="0" max="100" value="40" low="30" high="70" optimum="80">
+            40%
+        </meter>
+        <p>(0 = Beginner, 100 = Advanced)</p>
+        <br>
+
+        
+        <label for="experience">Experience Level:</label><br>
+        <input type="range" id="experience" name="experience" min="0" max="10" required>
+        <br><br>
+
+        
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="16" max="65" required>
+        <br><br>
+
+        
+        <label>Form Completion Progress:</label><br>
+        <progress value="70" max="100"></progress>
+        <br><br>
+
+        
+        <input type="submit" value="Enroll Now">
+
+    </form>
+
+</section>
+
+<footer>
+    <p>© 2026 Online Learning Platform</p>
+    
+</footer>
+
+</body>
+</html>
+
+
+
