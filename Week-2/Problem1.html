@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Notes Saver</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        textarea {
+            width: 300px;
+            height: 150px;
+            padding: 10px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        #displayNote {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body onload="loadNote()">
+
+    <h2>Personal Notes Saver</h2>
+
+    <textarea id="noteArea" placeholder="Write your daily note here..."></textarea>
+    <br>
+
+    
+    <button onclick="saveNote()">Save</button>
+    <button onclick="getNote()">Get Text</button>
+    <button onclick="clearNote()">Clear</button>
+
+    <p id="displayNote"></p>
+
+    <script>
+
+         
+        function saveNote() {
+            const noteText = document.getElementById("noteArea").value;
+            localStorage.setItem("dailyNote", noteText);
+            alert("Note Saved Successfully!");
+        }
+
+        
+        function loadNote() {
+            const savedNote = localStorage.getItem("dailyNote");
+
+            if (savedNote !== null) {
+                document.getElementById("noteArea").value = savedNote;
+            }
+        }
+
+       
+        function getNote() {
+            const savedNote = localStorage.getItem("dailyNote");
+
+            if (savedNote !== null) {
+                document.getElementById("displayNote").innerText =
+                    "Stored Note: " + savedNote;
+            } else {
+                document.getElementById("displayNote").innerText =
+                    "No note found in storage.";
+            }
+        }
+
+        
+        function clearNote() {
+            localStorage.removeItem("dailyNote");
+            document.getElementById("noteArea").value = "";
+            document.getElementById("displayNote").innerText = "";
+            alert("Note Cleared!");
+        }
+
+    </script>
+
+</body>
+</html>

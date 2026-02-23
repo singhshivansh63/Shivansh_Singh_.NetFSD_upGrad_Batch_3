@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Logger</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 10px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body onload="loadHistory()">
+
+    <h2>Location-Based Weather Logger</h2>
+
+    <button onclick="getLocation()">Get My Location</button>
+
+    <p id="statusMsg"></p>
+
+    <h3>Location History (Last 5)</h3>
+    <ul id="historyList"></ul>
+
+    <script>
+
+        
+        function getLocation() {
+
+            if (!navigator.geolocation) {
+                document.getElementById("statusMsg").innerText =
+                    "Geolocation is not supported by this browser.";
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                successCallback,
+                errorCallback,
+                { timeout: 10000 }
+            );
+        }
+
+         
+        function successCallback(position) {
+
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            const status = document.getElementById("statusMsg");
+            status.className = "success";
+            status.innerText =
+                "Latitude: " + latitude + " | Longitude: " + longitude;
+
+            saveLocation(latitude, longitude);
+        }
+
+         
+        function errorCallback(error) {
+
+            const status = document.getElementById("statusMsg");
+            status.className = "error";
+
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    status.innerText = "Permission Denied.";
+                    break;
+
+                case error.POSITION_UNAVAILABLE:
+                    status.innerText = "Location Unavailable.";
+                    break;
+
+                case error.TIMEOUT:
+                    status.innerText = "Request Timed Out.";
+                    break;
+
+                default:
+                    status.innerText = "An Unknown Error Occurred.";
+            }
+        }
+
+        
+        function saveLocation(lat, long) {
+
+            let history =
+                JSON.parse(localStorage.getItem("locationHistory")) || [];
+
+            const newEntry = {
+                latitude: lat,
+                longitude: long,
+                time: new Date().toLocaleString()
+            };
+
+            history.unshift(newEntry);  
+
+            if (history.length > 5) {
+                history.pop();  
+            }
+
+            localStorage.setItem(
+                "locationHistory",
+                JSON.stringify(history)
+            );
+
+            displayHistory();
+        }
+
+      
+        function displayHistory() {
+
+            const history =
+                JSON.parse(localStorage.getItem("locationHistory")) || [];
+
+            const list = document.getElementById("historyList");
+            list.innerHTML = "";
+
+            history.forEach(function(entry) {
+                const li = document.createElement("li");
+                li.innerText =
+                    entry.time + " → Lat: " +
+                    entry.latitude + ", Long: " +
+                    entry.longitude;
+                list.appendChild(li);
+            });
+        }
+
+        
+        function loadHistory() {
+            displayHistory();
+        }
+
+    </script>
+
+</body>
+</html>
