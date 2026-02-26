@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Data Fetcher</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+    }
+        button {
+            padding: 8px 12px;
+            margin-right: 10px;
+     }
+
+        output {
+            margin-top: 20px;
+            font-weight: bold;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Weather Data Fetcher (Level-2)</h1>
+
+<button onclick="getWeatherWithPromises()">Fetch (Promises)</button>
+<button onclick="getWeatherAsync()">Fetch (Async/Await)</button>
+
+<div id="output"></div>
+
+<script>
+
+const API_URL = 
+"https://api.open-meteo.com/v1/forecast?latitude=17.385&longitude=78.4867&current_weather=true";
+
+ 
+const getWeatherWithPromises = () => {
+
+    fetch(API_URL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => displayWeather(data))
+        .catch(error => {
+            document.getElementById("output").textContent =
+                ` Error: ${error.message}`;
+        });
+};
+
+
+
+const getWeatherAsync = async () => {
+
+    try {
+        const response = await fetch(API_URL);
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch weather data");
+        }
+
+        const data = await response.json();
+
+        displayWeather(data);
+
+    } catch (error) {
+        document.getElementById("output").textContent =
+            ` Error: ${error.message}`;
+    }
+};
+
+
+ 
+const displayWeather = (data) => {
+
+    const weather = data.current_weather;
+
+    const report = `
+🌤 WEATHER REPORT
+ 
+Temperature : ${weather.temperature}°C
+Wind Speed  : ${weather.windspeed} km/h
+Wind Direction : ${weather.winddirection}°
+Time        : ${weather.time}
+`;
+
+    document.getElementById("output").textContent = report;
+};
+
+</script>
+
+</body>
+</html>
