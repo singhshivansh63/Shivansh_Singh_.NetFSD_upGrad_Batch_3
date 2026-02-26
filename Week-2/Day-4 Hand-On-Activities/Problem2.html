@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Management System</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 350px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Vehicle Management System</h1>
+
+    <div id="output"></div>
+
+    <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+    <img src="./tyota car.jpg"
+         class="img-full-rectangle"
+         style="width: 250px; height: 250px; object-fit: cover;"
+         alt="Profile Image">
+</div>
+
+    <script>
+       
+        class Vehicle {
+
+            constructor(brand, speed) {
+                this.brand = brand;
+                this.speed = speed;
+            }
+
+            displayInfo() {
+                return `
+                    <p><strong>Brand:</strong> ${this.brand}</p>
+                    <p><strong>Speed:</strong> ${this.speed} km/h</p>
+                `;
+            }
+        }
+
+      
+        class Car extends Vehicle {
+
+            constructor(brand, speed, fuelType) {
+                super(brand, speed);  
+                this.fuelType = fuelType;
+            }
+
+            showCarDetails() {
+                return `
+                    <div class="card">
+                        <h2>Car Details</h2>
+                        ${this.displayInfo()}
+                        <p><strong>Fuel Type:</strong> ${this.fuelType}</p>
+                    </div>
+                `;
+            }
+        }
+ 
+        const myCar = new Car("Toyota", 180, "Petrol");
+
+      
+        document.getElementById("output").innerHTML =
+            myCar.showCarDetails();
+
+    </script>
+
+</body>
+</html>

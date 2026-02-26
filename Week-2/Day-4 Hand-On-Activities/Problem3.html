@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment System - Polymorphism</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 350px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Payment System (Polymorphism)</h1>
+
+    <div id="output"></div>
+
+    <script>
+        
+        class Payment {
+            pay(amount) {
+                return `Processing payment of ₹${amount}`;
+            }
+        }
+
+      
+        class CreditCardPayment extends Payment {
+            pay(amount) {
+                return `Paid ₹${amount} using Credit Card `;
+            }
+        }
+
+      
+        class UPIPayment extends Payment {
+            pay(amount) {
+                return `Paid ₹${amount} using UPI `;
+            }
+        }
+
+       
+        class CashPayment extends Payment {
+            pay(amount) {
+                return `Paid ₹${amount} using Cash `;
+            }
+        }
+
+       
+        const payments = [
+            new CreditCardPayment(),
+            new UPIPayment(),
+            new CashPayment()
+        ];
+
+        const outputDiv = document.getElementById("output");
+
+        
+        payments.forEach(payment => {
+            const result = payment.pay(500);
+
+            outputDiv.innerHTML += `
+                <div class="card">
+                    <h2>Payment Result</h2>
+                    <p>${result}</p>
+                </div>
+            `;
+        });
+    </script>
+
+</body>
+</html>

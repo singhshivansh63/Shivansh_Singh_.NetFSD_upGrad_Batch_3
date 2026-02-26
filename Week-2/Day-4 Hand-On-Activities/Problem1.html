@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Class Example</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        .student-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            width: 300px;
+        }
+
+        .grade-A { color: green; }
+        .grade-B { color: blue; }
+        .grade-C { color: orange; }
+        .grade-Fail { color: red; }
+    </style>
+</head>
+<body>
+
+    <h1>Student Details</h1>
+
+    <div id="output"></div>
+
+    <script>
+        
+
+        class Student {
+
+            constructor(name, rollNumber, marks) {
+                this.name = name;
+                this.rollNumber = rollNumber;
+                this.marks = marks;
+            }
+
+            getGrade() {
+                if (this.marks >= 90) return "A";
+                else if (this.marks >= 75) return "B";
+                else if (this.marks >= 50) return "C";
+                else return "Fail";
+            }
+
+            getDetails() {
+                const grade = this.getGrade();
+
+                return `
+                    <div class="student-card">
+                        <h3>${this.name}</h3>
+                        <p><strong>Roll No:</strong> ${this.rollNumber}</p>
+                        <p><strong>Marks:</strong> ${this.marks}</p>
+                        <p><strong>Grade:</strong> 
+                            <span class="grade-${grade}">${grade}</span>
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+     
+
+        const student1 = new Student("Rahul", 101, 92);
+        const student2 = new Student("Anjali", 102, 67);
+
+        
+
+        const outputDiv = document.getElementById("output");
+
+        outputDiv.innerHTML =
+            student1.getDetails() +
+            student2.getDetails();
+
+    </script>
+
+</body>
+</html>
