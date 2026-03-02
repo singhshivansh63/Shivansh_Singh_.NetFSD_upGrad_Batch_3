@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Multiplication Program</title>
+
+     
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <h3>jQuery Programming - Multiply Two Numbers</h3>
+    <hr />
+
+    Enter first number:
+    <input type="text" name="t1" id="t1" />
+    <br><br>
+
+    Enter second number:
+    <input type="text" name="t2" id="t2" />
+    <br><br>
+
+    Result :
+    <input type="text" readonly name="t3" id="t3" />
+    <br><br>
+
+    <input type="button" name="b1" id="b1" value=" Multiply " />
+
+    <script>
+        $(document).ready(function () {
+
+        $("#b1").click(function () {
+
+                let x = Number($("#t1").val());
+                let y = Number($("#t2").val());
+
+                let z = x * y;   
+
+             $("#t3").val(z);
+            });
+
+        });
+    </script>
+
+</body>
+</html>

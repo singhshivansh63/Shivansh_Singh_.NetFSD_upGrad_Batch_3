@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic FAQ Section</title>
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-container {
+            width: 600px;
+            margin: auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .question {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #e9ecef;
+        }
+
+        .question.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .answer {
+            display: none;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-container">
+
+    <div class="faq-item">
+        <div class="question">1. What courses do you offer?</div>
+        <div class="answer">We offer Web Development, Python, Java, and Data Science courses.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">2. Do you provide certificates?</div>
+        <div class="answer">Yes, we provide industry-recognized certificates after course completion.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">3. Are classes available online?</div>
+        <div class="answer">Yes, we provide both online and offline classes.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">4. What is the course duration?</div>
+        <div class="answer">Course duration ranges from 2 to 6 months depending on the program.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">5. Do you offer placement assistance?</div>
+        <div class="answer">Yes, we provide 100% placement assistance to eligible students.</div>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $(".question").click(function () {
+
+             
+            $(".question").removeClass("active");
+            $(this).addClass("active");
+
+            $(".answer").not($(this).next()).slideUp();
+            $(this).next(".answer").slideToggle();
+        });
+
+    });
+</script>
+
+</body>
+</html>
