@@ -1,0 +1,19 @@
+﻿@model ContactApp.Models.ContactInfo
+
+<h2>Search Result</h2>
+
+@if (Model == null)
+{
+    <h4>No contact found with this ID.</h4>
+}
+else
+{
+    <table class="table table-bordered">
+        <tr><th>Contact ID</th><td>@Model.ContactId</td></tr>
+        <tr><th>Name</th><td>@Model.FirstName @Model.LastName</td></tr>
+        <tr><th>Company</th><td>@Model.CompanyName</td></tr>
+        <tr><th>Email</th><td>@Model.EmailId</td></tr>
+        <tr><th>Mobile</th><td>@Model.MobileNo</td></tr>
+        <tr><th>Designation</th><td>@Model.Designation</td></tr>
+    </table>
+}

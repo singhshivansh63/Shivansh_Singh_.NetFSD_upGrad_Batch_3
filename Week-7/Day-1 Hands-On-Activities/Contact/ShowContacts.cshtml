@@ -1,0 +1,37 @@
+﻿@model List<ContactApp.Models.ContactInfo>
+
+<h2>All Contacts</h2>
+
+<a href="/Contact/AddContact" class="btn btn-primary">Add New Contact</a>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Contact ID</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Designation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.ContactId</td>
+                <td>@c.FirstName @c.LastName</td>
+                <td>@c.CompanyName</td>
+                <td>@c.EmailId</td>
+                <td>@c.MobileNo</td>
+                <td>@c.Designation</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form method="get" action="/Contact/GetContactById">
+    <label>Search Contact by ID:</label>
+    <input type="number" name="id" class="form-control w-25 d-inline" />
+    <button type="submit" class="btn btn-success">Search</button>
+</form>
