@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Simple Calculator";
+}
+
+<h2>Simple Calculator (Addition)</h2>
+
+<form method="post" action="/calc/add" class="mt-3">
+
+    <div class="mb-3">
+        <label>Enter Number 1</label>
+        <input type="number" class="form-control" name="num1" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Enter Number 2</label>
+        <input type="number" class="form-control" name="num2" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</form>
+
+@if (ViewData["Result"] != null)
+{
+    <div class="alert alert-success mt-3">
+        <h4>Result:</h4>
+        <p>@ViewData["Num1"] + @ViewData["Num2"] = <b>@ViewData["Result"]</b></p>
+    </div>
+}
