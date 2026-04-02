@@ -1,0 +1,12 @@
+﻿@model MovieApp.Models.Movie
+
+<h2>Movie Details</h2>
+
+<p><strong>Title:</strong> @Model.Title</p>
+<p><strong>Genre:</strong> @Model.Genre</p>
+<p><strong>Release Date:</strong> @Model.ReleaseDate.ToShortDateString()</p>
+<p><strong>Price:</strong> @Model.Price</p>
+<p><strong>Rating:</strong> @Model.Rating</p>
+
+<a class="btn btn-primary" href="/Movies/Edit/@Model.Id">Edit</a>
+<a class="btn btn-secondary" href="/Movies">Back</a>
