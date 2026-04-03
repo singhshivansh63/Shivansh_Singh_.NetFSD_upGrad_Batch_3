@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApplication10.Models.Student>
+
+<h2>Student List</h2>
+
+<a class="btn btn-primary" href="/Student/Create">Add New Student</a>
+<br />
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.StudentId</td>
+                <td>@s.StudentName</td>
+                <td>@s.Course?.CourseName</td>
+            </tr>
+        }
+    </tbody>
+</table>
