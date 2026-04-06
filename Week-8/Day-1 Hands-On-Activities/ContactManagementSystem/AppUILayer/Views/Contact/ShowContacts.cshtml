@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DataAccessLayer.Models.ContactInfo>
+
+<h2>Contact List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Company</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FirstName @item.LastName</td>
+                <td>@item.EmailId</td>
+                <td>@item.MobileNo</td>
+                <td>@item.CompanyName</td>
+                <td>@item.DepartmentName</td>
+                <td>
+                    <a href="/contact/edit/@item.ContactId">Edit</a> |
+                    <a href="/contact/delete/@item.ContactId"
+                       onclick="return confirm('Delete?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="/contact/add">Add New Contact</a>

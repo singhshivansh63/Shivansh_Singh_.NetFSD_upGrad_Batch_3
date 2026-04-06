@@ -1,0 +1,43 @@
+﻿@model DataAccessLayer.Models.ContactInfo
+@{
+    var companies = ViewBag.Companies;
+    var departments = ViewBag.Departments;
+}
+
+<h2>Add Contact</h2>
+
+<form method="post">
+    <label>First Name</label>
+    <input type="text" name="FirstName" class="form-control" />
+
+    <label>Last Name</label>
+    <input type="text" name="LastName" class="form-control" />
+
+    <label>Email</label>
+    <input type="email" name="EmailId" class="form-control" />
+
+    <label>Mobile</label>
+    <input type="number" name="MobileNo" class="form-control" />
+
+    <label>Designation</label>
+    <input type="text" name="Designation" class="form-control" />
+
+    <label>Company</label>
+    <select name="CompanyId" class="form-control">
+        @foreach (var c in companies)
+        {
+            <option value="@c.CompanyId">@c.CompanyName</option>
+        }
+    </select>
+
+    <label>Department</label>
+    <select name="DepartmentId" class="form-control">
+        @foreach (var d in departments)
+        {
+            <option value="@d.DepartmentId">@d.DepartmentName</option>
+        }
+    </select>
+
+    <br />
+    <button class="btn btn-success">Save</button>
+</form>
