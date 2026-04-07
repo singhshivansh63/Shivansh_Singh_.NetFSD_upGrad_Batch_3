@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebApplication12.Models.Contact>
+
+@{
+    ViewData["Title"] = "All Contacts";
+}
+
+<h2 class="text-center mt-3">All Contacts</h2>
+
+<a class="btn btn-primary mb-3" href="/Contact/Create">Add New Contact</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Contact Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Designation</th>
+            <th>Company</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.ContactId</td>
+                <td>@contact.FirstName @contact.LastName</td>
+                <td>@contact.EmailId</td>
+                <td>@contact.MobileNo</td>
+                <td>@contact.Designation</td>
+                <td>@contact.Company?.CompanyName</td>
+                <td>@contact.Department?.DepartmentName</td>
+
+                <td>
+                    <a class="btn btn-warning btn-sm" href="/Contact/Edit/@contact.ContactId">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Contact/Delete/@contact.ContactId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿@model WebApplication12.Models.Contact
+
+@{
+    ViewData["Title"] = "Add Contact";
+}
+
+<h2 class="mt-3">Add New Contact</h2>
+
+<form method="post" asp-action="Create">
+    <div class="row">
+
+        <div class="col-md-6">
+            <label>First Name</label>
+            <input class="form-control" asp-for="FirstName" />
+        </div>
+
+        <div class="col-md-6">
+            <label>Last Name</label>
+            <input class="form-control" asp-for="LastName" />
+        </div>
+
+        <div class="col-md-6 mt-2">
+            <label>Email</label>
+            <input class="form-control" asp-for="EmailId" />
+        </div>
+
+        <div class="col-md-6 mt-2">
+            <label>Mobile No</label>
+            <input class="form-control" asp-for="MobileNo" />
+        </div>
+
+        <div class="col-md-6 mt-2">
+            <label>Designation</label>
+            <input class="form-control" asp-for="Designation" />
+        </div>
+
+        <div class="col-md-6 mt-2">
+            <label>Company Id</label>
+            <input class="form-control" asp-for="CompanyId" />
+        </div>
+
+        <div class="col-md-6 mt-2">
+            <label>Department Id</label>
+            <input class="form-control" asp-for="DepartmentId" />
+        </div>
+
+        <div class="col-12 mt-3">
+            <button class="btn btn-success">Save</button>
+            <a href="/Contact/Index" class="btn btn-secondary">Back</a>
+        </div>
+    </div>
+</form>
