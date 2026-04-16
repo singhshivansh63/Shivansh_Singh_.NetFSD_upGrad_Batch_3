@@ -1,0 +1,34 @@
+{
+  "SwaggerEndPoints": [
+    {
+      "Key": "contact",
+      "Config": [
+        {
+          "Name": "Contact API",
+          "Version": "v1",
+          "Url": "https://localhost:7136/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "category",
+      "Config": [
+        {
+          "Name": "Category API",
+          "Version": "v1",
+          "Url": "https://localhost:5003/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "auth",
+      "Config": [
+        {
+          "Name": "Auth API",
+          "Version": "v1",
+          "Url": "https://localhost:7193/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}
