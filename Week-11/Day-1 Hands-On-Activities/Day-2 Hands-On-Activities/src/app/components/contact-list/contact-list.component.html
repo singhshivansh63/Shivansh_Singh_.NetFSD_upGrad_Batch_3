@@ -1,0 +1,50 @@
+<h2>Contact List</h2>
+
+<!-- ➕ Add Contact -->
+<input [(ngModel)]="newContact.name" placeholder="Name" />
+<input [(ngModel)]="newContact.email" placeholder="Email" />
+<input [(ngModel)]="newContact.phone" placeholder="Phone" />
+
+<button (click)="addContact()">Add Contact</button>
+
+<hr>
+
+<!-- 📋 Contact List -->
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let contact of contacts">
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.phone }}</td>
+
+    <td>
+      <span [ngStyle]="{
+        'color': contact.status ? 'green' : 'red',
+        'font-weight': 'bold'
+      }">
+        {{ contact.status ? 'Active' : 'Inactive' }}
+      </span>
+    </td>
+
+    <td>
+      <button (click)="toggleStatus(contact)">Toggle</button>
+      <button (click)="viewDetails(contact.id)">View</button>
+    </td>
+  </tr>
+</table>
+
+<!-- 📄 Detail Section -->
+<div *ngIf="selectedContact">
+  <h3>Contact Details</h3>
+  <p><b>ID:</b> {{ selectedContact.id }}</p>
+  <p><b>Name:</b> {{ selectedContact.name }}</p>
+  <p><b>Email:</b> {{ selectedContact.email }}</p>
+  <p><b>Phone:</b> {{ selectedContact.phone }}</p>
+</div>

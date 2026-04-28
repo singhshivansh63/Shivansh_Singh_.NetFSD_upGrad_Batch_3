@@ -1,0 +1,137 @@
+/* 🌟 Global Styles */
+body {
+  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🌟 Headings */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #34495e;
+}
+
+/* 🌟 Navigation */
+nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 6px;
+  background-color: #3498db;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background-color: #2980b9;
+}
+
+/* 🌟 Inputs */
+input {
+  padding: 10px;
+  width: 220px;
+  margin: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* 🌟 Buttons */
+button {
+  padding: 8px 14px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #2ecc71;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
+
+/* 🌟 Table */
+table {
+  width: 85%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+th {
+  background-color: #2c3e50;
+  color: white;
+  padding: 12px;
+}
+
+/* Cells */
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Row Hover */
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* 🌟 Status Colors */
+.active-status {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.inactive-status {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* 🌟 Detail Box */
+.detail-box {
+  width: 50%;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* 🌟 Responsive */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+
+  input {
+    width: 90%;
+  }
+
+  .detail-box {
+    width: 90%;
+  }
+}

@@ -1,0 +1,67 @@
+<h1>Contact Management</h1>
+
+<!-- ✅ Navigation -->
+<nav>
+  <a routerLink="/contacts">Contacts</a> |
+  <a routerLink="/add-contact">Add Contact</a>
+</nav>
+
+<hr>
+
+<!-- ✅ Router View -->
+<router-outlet></router-outlet>
+
+<hr>
+
+<!-- 🔥 YOUR EXISTING UI (STILL WORKS) -->
+
+<h2>All Contacts (Main View)</h2>
+
+<input [(ngModel)]="searchText" placeholder="Search..." />
+
+<br><br>
+
+<input [(ngModel)]="newContact.name" placeholder="Name" />
+<input [(ngModel)]="newContact.email" placeholder="Email" />
+<input [(ngModel)]="newContact.phone" placeholder="Phone" />
+
+<button (click)="addContact()">Add</button>
+
+<br><br>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let contact of contacts | searchFilter:searchText">
+    <td>{{ contact.name | titlecase }}</td>
+    <td>{{ contact.email | lowercase }}</td>
+    <td>{{ contact.phone | phoneFormat }}</td>
+
+    <td>
+      <span [ngStyle]="{
+        'color': contact.status ? 'green' : 'red'
+      }">
+        {{ contact.status | statusPipe }}
+      </span>
+    </td>
+
+    <td>
+      <button (click)="toggleStatus(contact)">Toggle</button>
+      <button (click)="viewDetails(contact.id)">View</button>
+    </td>
+  </tr>
+</table>
+
+<!-- Detail -->
+<div *ngIf="selectedContact">
+  <h3>Details</h3>
+  <p>{{ selectedContact.name }}</p>
+  <p>{{ selectedContact.email }}</p>
+  <p>{{ selectedContact.phone }}</p>
+</div>
