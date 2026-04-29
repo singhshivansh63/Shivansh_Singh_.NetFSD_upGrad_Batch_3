@@ -1,0 +1,20 @@
+<h2>Contact Details</h2>
+
+<p style="color:red" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+<div *ngIf="contact">
+  <p><b>ID:</b> {{ contact.id }}</p>
+  <p><b>Name:</b> {{ contact.name }}</p>
+  <p><b>Email:</b> {{ contact.email }}</p>
+  <p><b>Phone:</b> {{ contact.phone }}</p>
+
+  <p>
+    <b>Status:</b>
+    <span [ngStyle]="{
+      'color': contact.status ? 'green' : 'red',
+      'font-weight': 'bold'
+    }">
+      {{ contact.status ? 'Active' : 'Inactive' }}
+    </span>
+  </p>
+</div>

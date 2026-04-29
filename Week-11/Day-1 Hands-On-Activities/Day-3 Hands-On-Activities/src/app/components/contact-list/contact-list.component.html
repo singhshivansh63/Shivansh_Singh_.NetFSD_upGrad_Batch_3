@@ -1,0 +1,60 @@
+<h2>Contact List</h2>
+
+<!-- ✅ Messages -->
+<p style="color: green">{{ successMsg }}</p>
+<p style="color: red">{{ errorMsg }}</p>
+
+<!-- ➕ Add Contact -->
+<input [(ngModel)]="newContact.name" placeholder="Name" />
+<input [(ngModel)]="newContact.email" placeholder="Email" />
+<input [(ngModel)]="newContact.phone" placeholder="Phone" />
+
+<button (click)="addContact()">Add Contact</button>
+
+<hr>
+
+<!-- 📋 Contact List -->
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let contact of contacts">
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.phone }}</td>
+
+    <!-- ✅ Status (only display, no toggle unless API supports update) -->
+    <td>
+      <span [ngStyle]="{
+        'color': contact.status ? 'green' : 'red',
+        'font-weight': 'bold'
+      }">
+        {{ contact.status ? 'Active' : 'Inactive' }}
+      </span>
+    </td>
+
+    <td>
+      <!-- 🔍 View -->
+      <button (click)="viewDetails(contact.id)">View</button>
+
+      <!-- ❌ DELETE -->
+      <button (click)="deleteContact(contact.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<hr>
+
+<!-- 📄 Detail Section -->
+<div *ngIf="selectedContact">
+  <h3>Contact Details</h3>
+  <p><b>ID:</b> {{ selectedContact.id }}</p>
+  <p><b>Name:</b> {{ selectedContact.name }}</p>
+  <p><b>Email:</b> {{ selectedContact.email }}</p>
+  <p><b>Phone:</b> {{ selectedContact.phone }}</p>
+</div>
